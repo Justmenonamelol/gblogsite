@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import './style.css';
-import Icon from './images/favicon.png';
+import favicon from './images/favicon.png';
 import printMe from './javascript/print.js';
 
 
