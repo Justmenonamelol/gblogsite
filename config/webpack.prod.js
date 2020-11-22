@@ -1,48 +1,57 @@
-const paths = require('./paths');
+const paths = require('./paths')
+const { merge } = require('webpack-merge')
 const common = require('./webpack.common.js')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 
-
-
-module.exports = {
+module.exports = merge(common, {
   mode: 'production',
-  entry: {
-    index: './src/index.js',
-  },
-  plugins: [
-  ],
+  devtool: false,
   output: {
-    filename: '[name].bundle.js',
     path: paths.build,
     publicPath: '/',
+    filename: 'js/[name].[contenthash].bundle.js',
   },
+  plugins: [
+    // Extracts CSS into separate files
+    // Note: style-loader is for development, MiniCssExtractPlugin is for production
+    new MiniCssExtractPlugin({
+      filename: 'styles/[name].[contenthash].css',
+      chunkFilename: '[id].css',
+    }),
+  ],
   module: {
     rules: [
-    //css
       {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
-      },
-    //images
-      {
-        test: /\.(png|jpg|jpeg|gif)$/i,
-        exclude: [
-          /node_modules/
+        test: /\.(scss|css)$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2,
+              sourceMap: false,
+            },
+          },
+          'postcss-loader',
+          'sass-loader',
         ],
-        type: 'asset/resource',
       },
-    //fonts 
-      {
-        test: /\.(woff|woff2|eot|ttf|otf|svg)$/i,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]',
-            outputPath: 'fonts',
-          }
-        }] 
-       
-      },
-    //
     ],
-  }, 
-};
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [new CssMinimizerPlugin(), "..."],
+    // Once your build outputs multiple chunks, this option will ensure they share the webpack runtime
+    // instead of having their own. This also helps with long-term caching, since the chunks will only
+    // change when actual code changes, not the webpack runtime.
+    runtimeChunk: {
+      name: 'runtime',
+    },
+  },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
+  },
+})

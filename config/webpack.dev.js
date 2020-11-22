@@ -1,55 +1,27 @@
-const paths = require('./paths');
-const common = require('./webpack.common.js')
+const paths = require('./paths')
 const webpack = require('webpack')
+const { merge } = require('webpack-merge')
+const common = require('./webpack.common.js')
 
-
-
-
-
-// !!! svg duplicates, Images/fonts
-
-
-module.exports = {
+module.exports = merge(common, {
+  // Set the mode to development or production
   mode: 'development',
-  entry: {
-    index: './src/index.js',
-    print: './src/javascript/print.js',
-  },
+
   // Control how source maps are generated
   devtool: 'inline-source-map',
+
+  // Spin up a server for quick development
   devServer: {
-    contentBase: './dist',
+    historyApiFallback: true,
+    contentBase: paths.build,
+    open: true,
+    compress: true,
+    hot: true,
+    port: 8080,
   },
+
   plugins: [
+    // Only update what has changed on hot reload
+    new webpack.HotModuleReplacementPlugin(),
   ],
-  module: {
-    rules: [
-    //css
-      {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
-      },
-    //images
-      {
-        test: /\.(png|jpg|jpeg|gif)$/i,
-        exclude: [
-          /node_modules/
-        ],
-        type: 'asset/resource',
-      },
-    //fonts 
-      {
-        test: /\.(woff|woff2|eot|ttf|otf|svg)$/i,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]',
-            outputPath: 'fonts',
-          }
-        }] 
-       
-      },
-    //
-    ],
-  }, 
-};
+})
