@@ -1,0 +1,21 @@
+@mixin whitebg {
+	background: rgb(255, 255, 255);
+}
+@mixin blackbg {
+	background: rgb(0, 0, 0);
+}
+@mixin redbg {
+	background: rgb(255, 0, 0);
+}
+@mixin greenbg {
+	background: rgb(0, 255, 0);
+}
+@mixin bluebg {
+	background: rgb(0, 0, 255);
+}
+@mixin charcoalbg {
+	background: rgb(74, 73, 73);
+}
+@mixin lightbluebg {
+	background: rgb(171, 215, 230);
+}

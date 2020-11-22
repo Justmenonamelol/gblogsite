@@ -1,2 +1,12 @@
 import './javascript/main.js';
-import './style.css';
+
+
+
+
+
+
+
+
+//styles
+import './styles/style.scss';
+
