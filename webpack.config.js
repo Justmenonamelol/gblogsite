@@ -13,22 +13,14 @@ const CopyPlugin = require("copy-webpack-plugin");
 
 
 module.exports = {
-  mode: 'development',
   entry: {
     index: './src/index.js',
     print: './src/javascript/print.js',
   },
-
-  // Control how source maps are generated
-  devtool: 'inline-source-map',
-  devServer: {
-    contentBase: './dist',
-  },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Development',
-      favicon: "./src/images/favicon.png",
+      title: 'GBlogsite',
     }),
     // new CopyPlugin({
     //   patterns: [
@@ -39,8 +31,7 @@ module.exports = {
   ],
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, '../dist'),
-    publicPath: '/',
+    path: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [
@@ -60,6 +51,7 @@ module.exports = {
     //fonts 
       {
         test: /\.(woff|woff2|eot|ttf|otf|svg)$/i,
+        type: 'asset/resource',
         use: [{
           loader: 'file-loader',
           options: {
