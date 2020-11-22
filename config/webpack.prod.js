@@ -1,25 +1,18 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyPlugin = require("copy-webpack-plugin");
+const paths = require('./paths');
+const common = require('./webpack.common.js')
 
-
-
-
-// !!! svg duplicates, Images/fonts
 
 
 module.exports = {
   mode: 'production',
   entry: {
     index: './src/index.js',
-    print: './src/javascript/print.js',
   },
   plugins: [
   ],
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, '../dist'),
+    path: paths.build,
     publicPath: '/',
   },
   module: {

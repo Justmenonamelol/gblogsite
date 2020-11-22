@@ -1,4 +1,4 @@
-const path = require('path');
+const paths = require('./paths');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
@@ -18,7 +18,7 @@ module.exports = {
   ],
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, '../dist'),
+    path: paths.build,
     publicPath: '/',
   },
   module: {
@@ -43,7 +43,7 @@ module.exports = {
           loader: 'file-loader',
           options: {
             name: '[name].[ext]',
-            outputPath: 'fonts',
+            outputPath: paths.build + 'fonts',
           }
         }] 
        

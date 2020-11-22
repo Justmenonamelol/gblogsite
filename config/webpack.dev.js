@@ -1,7 +1,7 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyPlugin = require("copy-webpack-plugin");
+const paths = require('./paths');
+const common = require('./webpack.common.js')
+const webpack = require('webpack')
+
 
 
 
@@ -22,11 +22,6 @@ module.exports = {
   },
   plugins: [
   ],
-  output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, '../dist'),
-    publicPath: '/',
-  },
   module: {
     rules: [
     //css
