@@ -1,6 +1,6 @@
 .header {
     @include roboto;
-    background: $color-primary;
+    background: $color-fourthly;
     height: 5.5rem;
     width: 100%;
     display: flex;
@@ -20,6 +20,9 @@
     margin-top: 1.7rem;
     width: 3rem;
     height: 2rem;
+    @include respond(tablet){
+        display: none;
+    }
     span{
         display: flex;
         margin: .3rem auto .1rem;
@@ -29,7 +32,12 @@
         height: .1rem;
         width: 2rem;
     }     
-    span:nth-child(1){
-        color: green;
-    }
+}
+.credentials {
+    display: flex;
+    margin-left: auto;
+    border: $default-border;
+
+    color: $color-white;
+    font-size: 1.5rem;
 }

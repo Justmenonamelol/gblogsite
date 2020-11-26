@@ -24,7 +24,7 @@ module.exports = {
       patterns: [
         {
           from: paths.public,
-          to: 'assets',
+          to: 'images',
           globOptions: {
             ignore: ['*.DS_Store'],
           },
@@ -62,9 +62,29 @@ module.exports = {
           { loader: 'sass-loader', options: { sourceMap: true } },
         ],
       },
+      //html
+      {
+        test: /\.html$/,
+        loader: 'raw-loader',
+      },
+
 
       // Images: Copy image files to build folder
-      { test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: 'asset/resource' },
+      {
+        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              type: 'asset/resource',
+              esModule: false,
+              publicPath: 'images/',
+              outputPath: 'images/',
+            },
+          },
+        ],
+      },
 
       // Fonts and SVGs: Inline files
       { test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: 'asset/inline' },
