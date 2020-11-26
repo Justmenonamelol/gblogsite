@@ -1,12 +1,4 @@
-import './javascript/main.js';
-
-
-
-
-
-
-
-
-//styles
+//styles virsuj tur but
 import './styles/style.scss';
 
+import './javascript/main.js';
