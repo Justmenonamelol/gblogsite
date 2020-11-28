@@ -8,33 +8,38 @@
 */
 @mixin respond($breakpoint) {
 	@if $breakpoint == phone {
-		@media (max-width: 20rem) {
+		@media (max-width: 320px) {
 			@content;
-		} // 320px (iphone4)  @include respond(iphone4) {content};
+		} //  20rem (iphone4)  @include respond(iphone4) {content};
 	}
 	@if $breakpoint == htc {
-		@media (max-width: 22.5em) {
+		@media (max-width: 360px) {
 			@content;
-		} // 360px (galaxy5)  @include respond(htc) {content};
+		} //  22.5rem(galaxy5)  @include respond(htc) {content};
 	}
 	@if $breakpoint == iphonex {
-		@media (max-width: 23.4375rem) {
+		@media (max-width: 375px) {
 			@content;
-		} // 375px (iphonex)  @include respond(iphonex) {content};
+		} // 23.4375rem (iphonex)  @include respond(iphonex) {content};
 	}
 	@if $breakpoint == phonemax {
-		@media (min-width: 48rem) {
+		@media (min-width: 768px) {
 			@content;
-		} // 768px (phone)  @include respond(Phone) {content};
+		} // 48rem=== (phone)  @include respond(Phone) {content};
 	}
 	@if $breakpoint == tablet {
-		@media (min-width: 64rem) {
+		@media (min-width: 1024px) {
 			@content;
-		} // 1024px (tablet)  @include respond(tablet) {content};
+		} // 60rem (tablet)  @include respond(tablet) {content};
 	}
 	@if $breakpoint == desktop {
-		@media (min-width: 90rem) {
+		@media (min-width: 1440px) {
 			@content;
-		} // 1440px (desktop) @include respond(desktop) {content};
+		} // 90rem (desktop) @include respond(desktop) {content};
+	}
+	@if $breakpoint == unsupported {
+		@media (max-width: 319px) and (min-width: 50px) {
+			@content;
+		} //  19.9375rem max,  3.125rem min; 
 	}
 }
