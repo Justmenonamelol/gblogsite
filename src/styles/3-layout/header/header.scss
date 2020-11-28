@@ -1,23 +1,27 @@
 .header {
     @include roboto;
-    background: $color-fourthly;
-    height: 5.5rem;
+    background: $color-primary;
+    height: 10rem;
     width: 100%;
     display: flex;
+    padding-left: 2rem;
 }
+
+//logo
 .header--logo {
     height: 3.6rem;
     width: 15rem;
-    padding-top: 1.8rem;
+    margin-top: 2.5rem;
+    padding-top: .1rem;
     @include respond(iphone5){
         margin-left: 1rem;
     }
-    margin-left: 2rem;
 }
+
+//burger
 .header--burger {
     margin-left: auto;
-    margin-right: 2rem;
-    margin-top: 1.7rem;
+    margin-top: 3.75rem;
     width: 3rem;
     height: 2rem;
     @include respond(tablet){
@@ -25,19 +29,36 @@
     }
     span{
         display: flex;
-        margin: .3rem auto .1rem;
+        margin: .5rem auto .1rem;
         padding-top: .1rem;
         background-color: $color-white;
         opacity: 0.7;
-        height: .1rem;
-        width: 2rem;
+        height: .2rem;
+        width: 3rem;
     }     
 }
-.credentials {
-    display: flex;
-    margin-left: auto;
-    border: $default-border;
 
-    color: $color-white;
-    font-size: 1.5rem;
+
+// Credentials
+.credentials {
+    @include respond(tablet){
+        display: flex;
+        padding-top: 1.3rem;
+        padding-right: 3rem;
+        padding-left: 2rem;
+        margin-top: 2.5rem;
+        margin-left: auto;
+        font-size: 2rem;
+        @include respond(phone) {
+            display: none;
+        }
+        a {
+            text-decoration: none;
+            color: $color-fourthly;
+            margin-right: 2rem;
+            @include roboto;
+        }
+
+    }
+   
 }

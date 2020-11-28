@@ -7,12 +7,7 @@
 1rem = 0.0625px
 */
 @mixin respond($breakpoint) {
-	@if $breakpoint == unsupported {
-		@media (max-width: 19.9735rem) {
-			@content;
-		} // 50-319px (unsupported)  @include unsupported;
-	}
-	@if $breakpoint == iphone5 {
+	@if $breakpoint == phone {
 		@media (max-width: 20rem) {
 			@content;
 		} // 320px (iphone4)  @include respond(iphone4) {content};
@@ -27,7 +22,7 @@
 			@content;
 		} // 375px (iphonex)  @include respond(iphonex) {content};
 	}
-	@if $breakpoint == phone {
+	@if $breakpoint == phonemax {
 		@media (min-width: 48rem) {
 			@content;
 		} // 768px (phone)  @include respond(Phone) {content};
