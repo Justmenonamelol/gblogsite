@@ -2,8 +2,8 @@
     @include roboto;
     background: $color-primary;
     height: 10rem;
-    width: 100%;
     display: flex;
+    width: 100%;
     padding-left: 2rem;
 }
 
@@ -11,18 +11,16 @@
 .header--logo {
     height: 3.6rem;
     width: 15rem;
-    margin-top: 2.5rem;
     padding-top: .1rem;
-    margin-left: 1.5rem;
-    @include respond(iphone5){
+    margin: 2.5rem 0 0 1.5rem;
+    @include respond(phone){
         margin-left: 1rem;
     }
 }
 
 //burger
 .header--burger {
-    margin-left: auto;
-    margin-top: 3.75rem;
+    margin: 3.75rem 2.5rem 0 auto;
     width: 3rem;
     height: 2rem;
     @include respond(tablet){
@@ -39,25 +37,24 @@
     }     
 }
 
-
 // Credentials
 .credentials {
+    display: none;
     @include respond(tablet){
         display: flex;
-        padding-top: 1.3rem;
-        padding-right: 3rem;
-        padding-left: 2rem;
-        margin-top: 2.5rem;
-        margin-left: auto;
+        padding: 1.3rem 3rem 0 2rem;
+        margin: 2.5rem 2rem 2.8rem auto;
         font-size: 2rem;
-        @include respond(phone) {
-            display: none;
-        }
         a {
             text-decoration: none;
-            color: $color-fourthly;
-            margin-right: 2rem;
             @include roboto;
+            color: $color-fourthly;
+            margin: 0 2rem .7rem 0;
+        }
+        a:hover {
+            @include cabin;
+            color: $color-fourthly;
+            border-bottom: .3rem solid $color-fourthly;
         }
 
     }

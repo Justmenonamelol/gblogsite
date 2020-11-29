@@ -4,12 +4,11 @@
     width: 100%;
     height: 102.4rem;
     display: flex;
-   
 }
 
 // left-side
 .firstSection--leftSide {
-    width: 15%;
+    width: 20%;
     background: $color-white;
     display: flex;
     margin-right: auto;
@@ -25,14 +24,12 @@
             font-size: 4rem;
             margin-top: 4rem;
             color: $color-black;
-            letter-spacing: .1rem;
             text-decoration: none;
         }
     }
-
 }
 .firstSection--rightSide {
-    width: 85%;
+    width: 80%;
     background-color: red;
     display: flex;
     margin-left: auto;
@@ -46,5 +43,8 @@
         h1 {
             text-align: center;
         }
+    }
+    .firstSection--table th {
+        color: white;
     }
 }
