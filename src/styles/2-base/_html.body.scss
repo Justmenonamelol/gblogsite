@@ -5,7 +5,7 @@ body {
 	margin: 0;
 	padding: 0;
 	@include respond(unsupported) {
-		display: none;
+		background: red;
      }
 }
 /* roboto-condensed-700 - latin */

@@ -1,0 +1,79 @@
+.mainSection {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+// left-side
+.mainSection--leftSide {
+    display: none;
+    //mobile
+    @include respond(tablet){
+    width: 25vw;
+    background: $color-black;
+    display: flex;
+    margin-right: auto;
+    .menuBar {  
+        @include roboto; 
+        width: 25vw;
+        ul {
+            padding-left: 1rem;
+        }
+        li {
+            list-style-type: none;
+        }
+        ul li a {
+            display: flex;
+            justify-content: center;
+            border: .2rem solid $color-fourthly;       
+            color: $color-fourthly;
+            margin: 4rem 3rem 0 2rem;
+            font-size: 3rem; 
+            text-decoration: none;
+        }
+    }
+    }
+   
+}
+.mainSection--rightSide {
+    display: none;
+    //code goes here
+
+
+
+    @include respond(tablet){
+    width: 80vw;
+    background-color:$color-primary;
+    display: flex;
+        .mainSection--rightSide--container {
+            margin: 0 3rem 5rem 2rem;
+            width: 70vw;
+            padding-left: 2rem;
+            padding-right: 18rem;
+            font-size: 3rem;
+            border: .1rem solid $color-yellow;
+            background: $color-white;
+            h1 {
+                @include roboto;
+                text-align: center;
+                margin-right: 2rem;
+            }
+            p {
+                @include cabin;
+                text-align: center;
+            }
+        }
+        .mainSection--table  {
+            display: flex;
+            border: 1px solid black;
+            thead {
+                color:red;
+            }
+            tbody {
+                color: green;
+            }
+        }
+    }
+
+
+}
