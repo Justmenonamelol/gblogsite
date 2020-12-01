@@ -3,10 +3,7 @@ body {
 	font-size: 62.5%;
 	box-sizing: border-box;
 	margin: 0;
-	padding: 0;
-	@include respond(unsupported) {
-		background: red;
-     }
+     padding: 0;
 }
 /* roboto-condensed-700 - latin */
 @font-face {

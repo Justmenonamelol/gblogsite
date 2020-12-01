@@ -37,9 +37,4 @@
 			@content;
 		} // 90rem (desktop) @include respond(desktop) {content};
 	}
-	@if $breakpoint == unsupported {
-		@media (max-width: 319px) and (min-width: 50px) {
-			@content;
-		} //  19.9375rem max,  3.125rem min; 
-	}
 }
